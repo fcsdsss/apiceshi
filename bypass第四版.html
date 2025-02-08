@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绕过 API</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #64b5f6;
+        }
+
+        #urlInput {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.2em;
+            margin: 20px 0;
+            background: #333;
+            border: 1px solid #444;
+            color: #fff;
+            border-radius: 5px;
+        }
+
+        .button-group {
+            margin: 30px 0;
+            gap: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* 更新后的按钮样式 */
+        button {
+            padding: 15px 30px;
+            font-size: 1.1em;
+            background: #555; /* 背景色改为灰色 */
+            color: #fff; /* 文字颜色保持白色 */
+            border: 2px solid #777; /* 边框改为深灰色 */
+            border-radius: 10px; /* 圆角效果 */
+            cursor: pointer;
+            transition: all 0.2s ease; /* 添加过渡效果 */
+            position: relative;
+            box-shadow: 0 0 8px rgba(119, 119, 119, 0.3); /* 调整阴影颜色 */
+        }
+
+        button:hover {
+            background: #777; /* 鼠标悬停时背景色变为浅灰色 */
+            border-color: #999; /* 边框颜色变为更浅的灰色 */
+            box-shadow: 0 0 12px rgba(153, 153, 153, 0.5); /* 调整阴影颜色 */
+        }
+
+        /* 点击时的动态效果 */
+        button:active {
+            transform: scale(0.95); /* 点击时按钮缩小 */
+            background: #444; /* 点击时背景色变深 */
+            box-shadow: 0 0 6px rgba(119, 119, 119, 0.5); /* 点击时阴影变化 */
+        }
+
+        /* 新增尺寸指示线 */
+        button::after {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            border: 1px solid rgba(119, 119, 119, 0.3); /* 调整指示线颜色 */
+            border-radius: 12px; /* 圆角效果 */
+            pointer-events: none;
+        }
+
+        #output {
+            width: 100%;
+            padding: 20px;
+            font-size: 1.1em;
+            background: #333;
+            border: 1px solid #444;
+            color: #fff;
+            border-radius: 5px;
+            margin-top: 20px;
+            min-height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>绕过 URL</h2>
+        <input type="text" id="urlInput" placeholder="在此输入 URL">
+        <div class="button-group">
+            <button onclick="bypassUrl()">绕过</button>
+            <button onclick="clearFields()">清空</button>
+            <button onclick="navigateToResponse()">转到响应</button>
+        </div>
+        <textarea id="output" rows="5" cols="50" readonly placeholder="API 响应将显示在此处..."></textarea>
+    </div>
+
+    <script>
+        function bypassUrl() {
+            const urlInput = document.getElementById('urlInput').value;
+            const output = document.getElementById('output');
+            output.value = `正在绕过 URL: ${urlInput}`;
+        }
+
+        function clearFields() {
+            document.getElementById('urlInput').value = '';
+            document.getElementById('output').value = '';
+        }
+
+        function navigateToResponse() {
+            const urlInput = document.getElementById('urlInput').value;
+            if (urlInput) {
+                window.open(urlInput, '_blank');
+            } else {
+                alert('请先输入一个 URL。');
+            }
+        }
+    </script>
+</body>
+</html>
