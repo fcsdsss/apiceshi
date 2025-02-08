@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>绕过 API</title>
+    <title>Bypass API</title>
     <style>
         body {
             background-color: #000;
@@ -47,44 +47,19 @@
             justify-content: center;
         }
 
-        /* 更新后的按钮样式 */
         button {
             padding: 15px 30px;
             font-size: 1.1em;
-            background: #555; /* 背景色改为灰色 */
-            color: #fff; /* 文字颜色保持白色 */
-            border: 2px solid #777; /* 边框改为深灰色 */
-            border-radius: 10px; /* 圆角效果 */
+            background: #1a237e;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
-            transition: all 0.2s ease; /* 添加过渡效果 */
-            position: relative;
-            box-shadow: 0 0 8px rgba(119, 119, 119, 0.3); /* 调整阴影颜色 */
+            transition: background 0.3s;
         }
 
         button:hover {
-            background: #777; /* 鼠标悬停时背景色变为浅灰色 */
-            border-color: #999; /* 边框颜色变为更浅的灰色 */
-            box-shadow: 0 0 12px rgba(153, 153, 153, 0.5); /* 调整阴影颜色 */
-        }
-
-        /* 点击时的动态效果 */
-        button:active {
-            transform: scale(0.95); /* 点击时按钮缩小 */
-            background: #444; /* 点击时背景色变深 */
-            box-shadow: 0 0 6px rgba(119, 119, 119, 0.5); /* 点击时阴影变化 */
-        }
-
-        /* 新增尺寸指示线 */
-        button::after {
-            content: '';
-            position: absolute;
-            top: -4px;
-            left: -4px;
-            right: -4px;
-            bottom: -4px;
-            border: 1px solid rgba(119, 119, 119, 0.3); /* 调整指示线颜色 */
-            border-radius: 12px; /* 圆角效果 */
-            pointer-events: none;
+            background: #303f9f;
         }
 
         #output {
@@ -98,40 +73,40 @@
             margin-top: 20px;
             min-height: 150px;
         }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h2>绕过 URL</h2>
-        <input type="text" id="urlInput" placeholder="在此输入 URL">
-        <div class="button-group">
-            <button onclick="bypassUrl()">绕过</button>
-            <button onclick="clearFields()">清空</button>
-            <button onclick="navigateToResponse()">转到响应</button>
-        </div>
-        <textarea id="output" rows="5" cols="50" readonly placeholder="API 响应将显示在此处..."></textarea>
-    </div>
+    <<style>
+/* 其他样式保持不变... */
 
-    <script>
-        function bypassUrl() {
-            const urlInput = document.getElementById('urlInput').value;
-            const output = document.getElementById('output');
-            output.value = `正在绕过 URL: ${urlInput}`;
-        }
+button {
+    padding: 15px 30px;
+    font-size: 1.1em;
+    background: #1a237e;
+    color: #fff;
+    border: 2px solid #64b5f6; /* 新增边缘高亮 */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    box-shadow: 0 0 8px rgba(100, 181, 246, 0.3); /* 添加发光效果 */
+}
 
-        function clearFields() {
-            document.getElementById('urlInput').value = '';
-            document.getElementById('output').value = '';
-        }
+button:hover {
+    background: #303f9f;
+    border-color: #90caf9; /* 悬停时改变边缘颜色 */
+    box-shadow: 0 0 12px rgba(144, 202, 249, 0.5); /* 增强发光效果 */
+}
 
-        function navigateToResponse() {
-            const urlInput = document.getElementById('urlInput').value;
-            if (urlInput) {
-                window.open(urlInput, '_blank');
-            } else {
-                alert('请先输入一个 URL。');
-            }
-        }
-    </script>
+/* 新增按钮尺寸指示线 */
+button::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border: 1px solid rgba(100, 181, 246, 0.3);
+    border-radius: 7px;
+    pointer-events: none;
+}
+</style>
 </body>
 </html>
